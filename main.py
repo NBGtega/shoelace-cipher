@@ -22,7 +22,7 @@ def second_pair(letters):
         right_letters = letters[letter * 2 + 1]
         shoe_lace_cordinates[left_letters] = (0,-letter)
         shoe_lace_cordinates[right_letters]= (1,-letter)
-        return shoe_lace_cordinates
+    return shoe_lace_cordinates
 
 second_cordinate = second_pair(letters)
 print(second_cordinate)
