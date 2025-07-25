@@ -88,17 +88,17 @@ def main():
 
     while active:
         #This creates an ArgumentParser object. It detects the flags automagically. Also, you can set it up to have the flags
-        # that you one. It also omits the step of having to check if the input is in the algos dictionary.
-        # Idk if we are going to use something like this, but at least is a start ;) 
+        # that you want. It also omits the step of having to check if the input is in the algos dictionary.
+        # Idk if we are going to use something like this, but at least it's a start ;) 
         parser = argparse.ArgumentParser(description="This CLI helps you cypher" \
         "your secrets with a shoe-lacing algorithm of your choosing", usage="main.py [method]")
 
         #Here you set up your own flags. The required argument is important because you are saying
-        #that this flag cannot be ommited.
+        #that this flag cannot be omitted.
         parser.add_argument("-m", "--method", metavar="method", required=True, choices=["criss-cross", "gap", "lock"],
                             help="Shoe-lacing method the user wants")
         
-        #This reads the arguments passed in the terminal
+        #This reads the arguments passed to the terminal
         args = parser.parse_args()
 
         method = args.method 
