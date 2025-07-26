@@ -1,41 +1,21 @@
-def crisscross(secret):
-    #This is a hand written graph with where to each word points to
-    #It is super inefficient
-    word_graph= {
-        "a":"d",
-        "b":"c",
-        "c":"f",
-        "d":"e",
-        "e":"h",
-        "f":"g",
-        "g":"j",
-        "h":"i",
-        "i":"l",
-        "j":"k",
-        "k":"n",
-        "l":"m",
-        "m":"p",
-        "n":"o",
-        "o":"r",
-        "p":"q",
-        "q":"t",
-        "r":"s",
-        "s":"v",
-        "t":"u",
-        "u":"x",
-        "v":"w",
-        "w":"z",
-        "x":"y",
-        "y":"y",
-        "z":"z"
-    }
-    #My logic is, we check each word to a key in the dict and add it's value to the list
-    cyphered_secret = []
-    for l in secret:
-        cyphered_secret.append(word_graph[l])
+#dattebayo
+def crisscross(text):
+    i = 0                                   #itereator
+    list_of_char = list(text)               #list of input text
+    output = []                             #output var
+    while i < len(text):                    #runs till all characters are converted
+        ascii_value = ord(list_of_char[i])  #ascii value of letter
+        if ascii_value in range(ord('A'), ord('Z')):    #check if the char is within A-Z character limit
+            if ascii_value % 2 == 0:            #check if it's even
+                ascii_value += 1                #step of one char forward
+            else:
+                ascii_value += 3                #step of 3 char forward
+            output.append(chr(ascii_value))     #appending after converting back to chr
+            i += 1
+        else:
+            raise ValueError(f'Error: "{chr(ascii_value)}" is not supported \nUppercase letters (A-Z) are supported only')
 
-    return "".join(cyphered_secret)
-    
+    return output
 
 
 def straight_european(secret):
