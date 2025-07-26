@@ -37,6 +37,11 @@ def crisscross(text):
 
     return output
 
+def reverse(text):
+    text_list = list(text)
+    text_list.reverse()
+    return ''.join(text_list)
+
 #def Lock():
 #    print("Lock algo would go here")
 #    print()
@@ -45,4 +50,4 @@ def crisscross(text):
 #    print("Gap algo would go here")
 #    print()
 
-#print(crisscross("ABZ"))
+#print(reverse("ABZ"))
