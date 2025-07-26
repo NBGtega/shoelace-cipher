@@ -38,14 +38,9 @@ def main():
 
         method = args.method
         secret_word = args.secret
-        secret_divided= []
-        
-        #To avoid having to divide the word in each aglo function, we pass it already divided
-        for l in secret_word:
-            secret_divided.append(l)
 
         #We repeat the process three times to make it as difficult as possible to crack (?)
-        first_round = algos[method](secret_divided)
+        first_round = algos[method](list(secret_word.upper()))
         second_round = algos[method](first_round)
         third_round = algos[method](second_round)
 
