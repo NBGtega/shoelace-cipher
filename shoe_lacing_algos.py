@@ -1,11 +1,11 @@
-def crisscross():
-    print("Criss-cross algo would go here")
+def crisscross(secret):
+    print(secret)
     print()
 
-def Lock():
-    print("Lock algo would go here")
+def straight_european(secret):
+    print("straight_european algo would go here")
     print()
 
-def Gap():
-    print("Gap algo would go here")
+def army(secret):
+    print("Army algo would go here")
     print()
