@@ -78,10 +78,16 @@ import argparse
 # # }
 
 
+algos = {"criss-cross": crisscross,
+         "straight european": straight_european,
+         "army": army}
+
+
 def main():
     print("Welcome to the shoelace-cipher")
     print("Your trusty CLI to cypher your secrets ;)")
     print()
+    print("Supported cyphering methods: criss-cross, straight european, army")
     print("If you need more information you can use the flag --help")
 
     active = True
@@ -91,7 +97,11 @@ def main():
         # that you want. It also omits the step of having to check if the input is in the algos dictionary.
         # Idk if we are going to use something like this, but at least it's a start ;) 
         parser = argparse.ArgumentParser(description="This CLI helps you cypher" \
-        "your secrets with a shoe-lacing algorithm of your choosing", usage="main.py [method]")
+        "your secrets with a shoe-lacing algorithm of your choosing", usage="main.py [secret] [method]")
+
+        #This flag is going to contain the secret we are going to be cyphering.
+        parser.add_argument("-s", "--secret", metavar="secret", required=True,
+                            help="The secret you want to cypher")
 
         #Here you set up your own flags. The required argument is important because you are saying
         #that this flag cannot be omitted.
@@ -101,12 +111,18 @@ def main():
         #This reads the arguments passed to the terminal
         args = parser.parse_args()
 
-        method = args.method 
+        method = args.method
+        secret_word = args.secret
+        secret_divided= []
+        
+        #To avoid having to divide the word in each aglo function, we pass it already divided
+        for l in secret_word:
+            secret_divided.append(l)
 
-        #I think here we can call the logic and pass the relevant arguments
-        print(method) 
+        #We call the function and pass it the word already divided 
+        algos[method](secret_divided)
 
-        time.sleep(3)
+        time.sleep(5)
 
         break
 
