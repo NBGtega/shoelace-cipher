@@ -4,7 +4,7 @@ from shoe_lacing_algos import *
 import argparse
 
 algos = {"criss-cross": crisscross,
-         "straight european": straight_european,
+         "straight_european": straight_european,
          "army": army}
 
 
@@ -31,7 +31,7 @@ def main():
         #Here you set up your own flags. The required argument is important because you are saying
         #that this flag cannot be omitted.
         parser.add_argument("-m", "--method", metavar="method", required=True, choices=["criss-cross",
-                            "straight european", "army"], help="Shoe-lacing method the user wants")
+                            "straight_european", "army"], help="Shoe-lacing method the user wants")
         
         #This reads the arguments passed to the terminal
         args = parser.parse_args()
