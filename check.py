@@ -26,7 +26,7 @@ def check_criss_cross():
 
 def check_army():
        expected_upper = "CDFEGHJIKLNMOPRQSTVUWXZYAB"
-       expected_lower = "cdfeghjiklnmoprqstvuwxzyab"
+       expected_lower = expected_upper.lower()
        actual_upper = army(text_upper)
        actual_lower = army(text_lower)
 
@@ -35,7 +35,7 @@ def check_army():
 
 
 def check_str_eur():
-    expected_upper = "DEHCFILGJMPKNQTORUXSVYZWBA"
+    expected_upper = "FCDGJEHKNILORMPSVQTWZUXADY"
     expected_lower = expected_upper.lower()
     actual_upper = straight_european(text_upper)
     actual_lower = straight_european(text_lower)
@@ -46,6 +46,6 @@ def check_str_eur():
 
 #check_army() currently giving errors due to incomplete logic 
 # check_criss_cross()
-check_army()
-
+# check_army()
+check_str_eur()
 
