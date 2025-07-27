@@ -1,3 +1,6 @@
+from y_and_z import y_and_z_check
+
+
 def crisscross(text):
 
     i = 0                                   #itereator
@@ -35,16 +38,19 @@ def crisscross(text):
         output.append(chr(ascii_value))     #appending after converting back to chr
         i += 1
 
-    return ''.join(output)
+    return output
 
 def army(text):
-    i = 0                                   #itereator
-                                            #list of input text
-    output = []                             #output var
+    i = 0
+    y_ascii = ord('y')
+    Y_ascii = ord('Y')
+    z_ascii = ord('z')
+    Z_ascii = ord('Z')                                                                          
+    output = []                             
 
-    while i < len(text):                    #runs till all characters are converted
+    while i < len(text):            #runs till all characters are converted
         ascii_value = ord(text[i])  #ascii value of letter
-        if ascii_value in range(ord('A'), ord('Z')): #check if the char is within A-Z character limit
+        if ascii_value in range(ord('A'), Y_ascii) or ascii_value in range(ord('a'), y_ascii): #check if the char is within A-Z character limit
             #Here I am checking if the direction towards the next letter is downwards or diagonal
             #If % 2 == 0, it could mean 2 steps ahead or 3.
             if ascii_value % 4 == 0: 
@@ -55,11 +61,14 @@ def army(text):
                 else:
                     ascii_value +=2
             output.append(chr(ascii_value))     #appending after converting back to chr
-            i += 1
+        elif ascii_value in [y_ascii, Y_ascii, z_ascii, Z_ascii]:
+            output = y_and_z_check(ascii_value, y_ascii, Y_ascii, z_ascii, Z_ascii, output)
+            
         else:
-            raise ValueError(f'Error: "{chr(ascii_value)}" is not supported \nUppercase letters (A-Z) are supported only')
+            raise ValueError(f'Error: "{chr(ascii_value)}" is not supported \nOnly letters are supported')
+        i += 1
 
-    return "".join(output)
+    return output
             
 def straight_european(text):
     letter = list(text)
@@ -123,5 +132,3 @@ def straight_european(text):
 
     return lacing
 
-
-    print("Army algo would go here")
