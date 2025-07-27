@@ -68,7 +68,7 @@ def straight_european(text):
 
     def is_odd(char):
         index_letter = letter.index(char)
-        return index_letter % 2 == 0
+        return index_letter % 2 == 1
     
     odd_start_point = "A"
     used_point.add(odd_start_point)
