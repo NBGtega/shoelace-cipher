@@ -45,5 +45,5 @@ def check_str_eur():
 
 
 #check_army() currently giving errors due to incomplete logic 
-check_criss_cross()
-
+#check_criss_cross()
+check_str_eur()

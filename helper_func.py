@@ -6,6 +6,7 @@ def xor(text, magic_value):
         acii_of_mvalue = ord(magic_value[i % len(magic_value)])     #the index is always within bounds of length of magic magic_value
         encrypted = chr(ascii_of_char ^ acii_of_mvalue)
         output.append(encrypted)
+        i += 1
     return ''.join(output)
 
 def reverse(text):
@@ -47,3 +48,4 @@ def cause(expected, actual):
 
 
 
+print(xor(xor("ABCDEF", "kaboom"), "kaboom"))
