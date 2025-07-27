@@ -56,6 +56,19 @@ def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
         output.append(chr(ord('B')))
     return output
 
-
+def b_x_and_y_check(current_val, B_ascii, b_ascii, X_ascii, x_ascii, Y_ascii, y_ascii, output):
+    if current_val == B_ascii:
+        output.append(chr(ord('C')))
+    elif current_val ==  b_ascii:
+        output.append(chr(ord('c')))
+    elif current_val ==  X_ascii:
+        output.append(chr(ord('A')))
+    elif current_val == x_ascii:
+        output.append(chr(ord('a')))
+    elif current_val ==  Y_ascii:
+        output.append(chr(ord('D')))
+    elif current_val == y_ascii:
+        output.append(chr(ord('d')))
+    return output
 
 
