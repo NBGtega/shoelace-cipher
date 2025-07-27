@@ -37,11 +37,6 @@ def crisscross(text):
 
     return ''.join(output)
 
-def reverse(text):
-    text_list = list(text)
-    text_list.reverse()
-    return ''.join(text_list)
-
 def army(text):
     i = 0                                   #itereator
                                             #list of input text
