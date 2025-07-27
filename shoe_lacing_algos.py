@@ -72,40 +72,61 @@ def straight_european(text):
     used_point = set()
 
     def is_odd(char):
-        index_letter = letter.index(char)
-        return index_letter % 2 == 1
-    
+        return letter.index(char) % 2 == 1  # A=0 is odd index
+
+    # Phase 1 — Odd side entry (A side)
     odd_start_point = "A"
     used_point.add(odd_start_point)
 
     def next_free_even(after_point):
         i = letter.index(after_point) + 1
-        while i < len(text):
+        while i < len(letter):
             if i % 2 == 1 and letter[i] not in used_point:
                 return letter[i]
             i += 2
         return None
+
     target_even = next_free_even(odd_start_point)
     used_point.add(target_even)
-    exit_point = letter[letter.index(target_even-1)]
-    used_point.add(exit_point)
-    lacing.append((odd_start_point,target_even,exit_point))
 
+    # Special case: if target_even is Y and B has no entry
+    if target_even == "Y" and "B" not in used_point:
+        exit_point = "B"
+    else:
+        exit_point_index = letter.index(target_even) - 1
+        exit_point = letter[exit_point_index]
+
+    used_point.add(exit_point)
+    lacing.append((odd_start_point, target_even, exit_point))
+
+    # Phase 2 — Even side entry (B side)
     even_start_point = "B"
     used_point.add(even_start_point)
+
     def next_free_odd(after_point):
-        i = letter.index(after_point) +1
+        i = letter.index(after_point) + 1
         while i < len(letter):
             if i % 2 == 0 and letter[i] not in used_point:
                 return letter[i]
             i += 2
         return None
+
     target_odd = next_free_odd(even_start_point)
     used_point.add(target_odd)
-    exit_point = letter[letter.index(target_odd + 1)]
-    used_point.add(exit_point)
-    lacing.append((even_start_point,target_odd,exit_point))
 
+    exit_point_index = letter.index(target_odd) + 1
+    if exit_point_index < len(letter):
+        exit_point = letter[exit_point_index]
+        used_point.add(exit_point)
+        lacing.append((even_start_point, target_odd, exit_point))
+
+    # Z -> A closure
+    if "Z" in letter and "A" not in used_point:
+        lacing.append(("Z", None, "A"))
+        used_point.add("Z")
+        used_point.add("A")
+
+    return lacing
 
 
     print("Army algo would go here")
