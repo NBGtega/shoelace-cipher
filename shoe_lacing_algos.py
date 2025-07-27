@@ -35,7 +35,7 @@ def crisscross(text):
         output.append(chr(ascii_value))     #appending after converting back to chr
         i += 1
 
-    return output
+    return ''.join(output)
 
 def reverse(text):
     text_list = list(text)
@@ -69,3 +69,4 @@ def army(text):
 def straight_european(secret):
     print("Army algo would go here")
     print()
+#print(crisscross("ABZYabzy"))
