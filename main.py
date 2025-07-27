@@ -1,8 +1,10 @@
 # import string
 import os, time
-from shoe_lacing_algos import *
 import argparse
+from shoe_lacing_algos import crisscross, army, straight_european
+from helper_func import xor
 
+magic_value = "BLAh BlAH"       #input for xor function
 algos = {"criss-cross": crisscross,
          "straight_european": straight_european,
          "army": army}
@@ -43,10 +45,12 @@ def main():
         first_round = algos[method](list(secret_word.upper()))
         second_round = algos[method](first_round)
         third_round = algos[method](second_round)
+        final_round = xor(third_round, magic_value)
 
         print(first_round)
         print(second_round)
         print(third_round)
+        print(magic_value)
 
         #We can convert it here to hexadecimal and it might add another layer
         

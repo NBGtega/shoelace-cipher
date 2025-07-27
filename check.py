@@ -3,6 +3,19 @@ from shoe_lacing_algos import crisscross, army, straight_european
 text_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 text_lower = text_upper.lower()
 
+
+def recurse(text="ABC", recursion=0): #constantly encrypts with algorithm repepatedly and slaps in your face if it gives original string in 300 recursions range
+    if recursion >= 300:
+        print("We're safe(for now)")
+        return 
+    recursion += 1
+    if text == "ABC" and recursion != 1:
+        print(f"We're fked after {recursion} recursions")
+        return
+    recurse(crisscross(text), recursion)
+
+
+
 def cause(expected, actual):
     i = 0
     expected_list = []
