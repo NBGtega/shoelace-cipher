@@ -1,4 +1,9 @@
-from y_and_z import y_and_z_check
+from helper_func import y_and_z_check
+
+y_ascii = ord('y')
+Y_ascii = ord('Y')
+z_ascii = ord('z')
+Z_ascii = ord('Z')
 
 
 def crisscross(text):
@@ -6,10 +11,6 @@ def crisscross(text):
     i = 0                                   #itereator
     list_of_char = list(text)               #list of input text
     output = []                             #output var
-    y_ascii = ord('y')
-    Y_ascii = ord('Y')
-    z_ascii = ord('z')
-    Z_ascii = ord('Z')
 
     while i < len(text):                    #runs till all characters are converted
         ascii_value = ord(list_of_char[i])  #ascii value of letter
@@ -41,11 +42,7 @@ def crisscross(text):
     return output
 
 def army(text):
-    i = 0
-    y_ascii = ord('y')
-    Y_ascii = ord('Y')
-    z_ascii = ord('z')
-    Z_ascii = ord('Z')                                                                          
+    i = 0                                                                       
     output = []                             
 
     while i < len(text):            #runs till all characters are converted

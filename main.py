@@ -43,16 +43,13 @@ def main():
 
         #We repeat the process three times to make it as difficult as possible to crack (?)
         first_round = algos[method](secret_word)
-        print("".join(first_round))
         second_round = algos[method](first_round)
-        print("".join(second_round))
         third_round = algos[method](second_round)
-        print("".join(third_round))
         final_round = xor(third_round, magic_value)
-
-        print(first_round)
-        print(second_round)
-        print(third_round)
+        
+        print("".join(first_round))
+        print("".join(second_round))
+        print("".join(third_round))
         print(final_round)
         print(magic_value)
 
