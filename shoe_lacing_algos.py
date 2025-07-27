@@ -66,6 +66,48 @@ def army(text):
 
     return "".join(output)
             
-def straight_european(secret):
+def straight_european(text):
+    letter = list(text)
+    lacing = []
+    used_point = set()
+
+    def is_odd(char):
+        index_letter = letter.index(char)
+        return index_letter % 2 == 0
+    
+    odd_start_point = "A"
+    used_point.add(odd_start_point)
+
+    def next_free_even(after_point):
+        i = letter.index(after_point) + 1
+        while i < len(text):
+            if i % 2 == 1 and letter[i] not in used_point:
+                return letter[i]
+            i += 2
+        return None
+    target_even = next_free_even(odd_start_point)
+    used_point.add(target_even)
+    exit_point = letter[letter.index(target_even-1)]
+    used_point.add(exit_point)
+    lacing.append((odd_start_point,target_even,exit_point))
+
+    even_start_point = "B"
+    used_point.add(even_start_point)
+    def next_free_odd(after_point):
+        i = letter.index(after_point) +1
+        while i < len(letter):
+            if i % 2 == 0 and letter[i] not in used_point:
+                return letter[i]
+            i += 2
+        return None
+    target_odd = next_free_odd(even_start_point)
+    used_point.add(target_odd)
+    exit_point = letter[letter.index(target_odd + 1)]
+    used_point.add(exit_point)
+    lacing.append((even_start_point,target_odd,exit_point))
+
+
+
     print("Army algo would go here")
-    print()
+
+    print("European algoo go here")
