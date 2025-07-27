@@ -1,4 +1,4 @@
-from helper_func import y_and_z_check
+from helper_func import y_and_z_check, b_x_and_y_check
 
 y_ascii = ord('y')
 Y_ascii = ord('Y')
@@ -68,64 +68,29 @@ def army(text):
     return output
             
 def straight_european(text):
-    letter = list(text)
-    lacing = []
-    used_point = set()
+    i = 0                                                                       
+    output = []
+    ascii_vals = [x for x in range(ord('A'), ord('Z') + 1) if x != ord('B') and x != ord('X') and x != ord('Y')]
+    lower_ascii = [x for x in range(ord('a'), ord('z') + 1) if x != ord('b') and x != ord('x') and x != ord('y')]
+    ascii_vals.extend(lower_ascii)
 
-    def is_odd(char):
-        return letter.index(char) % 2 == 1  # A=0 is odd index
-
-    # Phase 1 — Odd side entry (A side)
-    odd_start_point = "A"
-    used_point.add(odd_start_point)
-
-    def next_free_even(after_point):
-        i = letter.index(after_point) + 1
-        while i < len(letter):
-            if i % 2 == 1 and letter[i] not in used_point:
-                return letter[i]
-            i += 2
-        return None
-
-    target_even = next_free_even(odd_start_point)
-    used_point.add(target_even)
-
-    # Special case: if target_even is Y and B has no entry
-    if target_even == "Y" and "B" not in used_point:
-        exit_point = "B"
-    else:
-        exit_point_index = letter.index(target_even) - 1
-        exit_point = letter[exit_point_index]
-
-    used_point.add(exit_point)
-    lacing.append((odd_start_point, target_even, exit_point))
-
-    # Phase 2 — Even side entry (B side)
-    even_start_point = "B"
-    used_point.add(even_start_point)
-
-    def next_free_odd(after_point):
-        i = letter.index(after_point) + 1
-        while i < len(letter):
-            if i % 2 == 0 and letter[i] not in used_point:
-                return letter[i]
-            i += 2
-        return None
-
-    target_odd = next_free_odd(even_start_point)
-    used_point.add(target_odd)
-
-    exit_point_index = letter.index(target_odd) + 1
-    if exit_point_index < len(letter):
-        exit_point = letter[exit_point_index]
-        used_point.add(exit_point)
-        lacing.append((even_start_point, target_odd, exit_point))
-
-    # Z -> A closure
-    if "Z" in letter and "A" not in used_point:
-        lacing.append(("Z", None, "A"))
-        used_point.add("Z")
-        used_point.add("A")
-
-    return lacing
-
+    while i < len(text):            #runs till all characters are converted
+        ascii_value = ord(text[i])  #ascii value of letter
+        if ascii_value in ascii_vals:
+           if ascii_value % 4 == 0:
+               ascii_value +=3
+           elif ascii_value % 4 == 1:
+               ascii_value +=5
+           elif ascii_value % 4 == 2:
+               ascii_value -=1
+           elif ascii_value % 4 == 3:
+               ascii_value +=1
+           output.append(chr(ascii_value))
+        elif ascii_value in [ord('B'), ord('X'), ord('b'), ord('x'), Y_ascii, y_ascii]:
+           output = b_x_and_y_check(ascii_value, ord('B'), ord('b'), ord('X'), ord('x'), Y_ascii, y_ascii, output)
+        
+        else:
+            raise ValueError(f'Error: "{chr(ascii_value)}" is not supported \nOnly letters are supported')
+        i += 1
+    
+    return output
