@@ -39,7 +39,7 @@ def crisscross(text):
         output.append(chr(ascii_value))     #appending after converting back to chr
         i += 1
 
-    return output
+    return ''.join(output)
 
 def army(text):
     i = 0                                                                       
@@ -65,7 +65,7 @@ def army(text):
             raise ValueError(f'Error: "{chr(ascii_value)}" is not supported \nOnly letters are supported')
         i += 1
 
-    return output
+    return ''.join(output)
             
 def straight_european(text):
     i = 0

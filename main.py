@@ -21,38 +21,46 @@ def main():
 
     while active:
         #This creates an ArgumentParser object. It detects the flags automagically. Also, you can set it up to have the flags
-        # that you want. It also omits the step of having to check if the input is in the algos dictionary.
-        # Idk if we are going to use something like this, but at least it's a start ;) 
-        parser = argparse.ArgumentParser(description="This CLI helps you cypher" \
+        # that you want. It also omits the step of having to check if the input is in the algos dictionary. 
+        parser = argparse.ArgumentParser(description="This CLI helps you cypher " \
         "your secrets with a shoe-lacing algorithm of your choosing", usage="main.py [secret] [method]")
 
-        #This flag is going to contain the secret we are going to be cyphering.
-        parser.add_argument("-s", "--secret", metavar="secret", required=True,
-                            help="The secret you want to cypher")
+        #We create here a group of mutually exclusive flags
+        group = parser.add_mutually_exclusive_group(required=True)
 
-        #Here you set up your own flags. The required argument is important because you are saying
-        #that this flag cannot be omitted.
-        parser.add_argument("-m", "--method", metavar="method", required=True, choices=["criss-cross",
-                            "straight_european", "army"], help="Shoe-lacing method the user wants")
+        #This flag is for the encryption method
+        group.add_argument("-e", "--en", metavar="Algorithm", dest="algorithm", choices=["criss-cross",
+                            "straight_european", "army"], help="Shoe-lacing encryption method the user wants")
+
+        #This flag contains the magic key to encrypt
+        #Because we use nargs='+' this is going to return a list we need to convert to string 
+        group.add_argument("-k", "--key", metavar="magic_key", dest="magic_key", nargs='+',
+                            help="Magic key that adds a layer of encryption")
+        
+        
+        #This flag is going to contain the secret we are going to be cyphering.
+        #Because we use nargs='+' this is going to return a list we need to convert to string
+        parser.add_argument("-m", "--msg", metavar="message", dest="message", required=True, nargs='+',
+                            help="The secret you want to cypher")
+        
         
         #This reads the arguments passed to the terminal
         args = parser.parse_args()
 
-        method = args.method
-        secret_word = list(args.secret)
+        en_method = args.algorithm #this is a list
+        msg_to_encrypt = list(args.message)
+        magic_value= args.magic_key #This is a list
+
+        if magic_value != None: #To pass this value, we need to convert it to a string
+           xor_encryption = xor(msg_to_encrypt, "".join(args.magic_key))
+           print(xor_encryption)
 
         #We repeat the process three times to make it as difficult as possible to crack (?)
-        first_round = algos[method](secret_word)
-        second_round = algos[method](first_round)
-        third_round = algos[method](second_round)
-        final_round = xor(third_round, magic_value)
-        
-        print("".join(first_round))
-        print("".join(second_round))
-        print("".join(third_round))
-        print(final_round)
-        print(magic_value)
-
+        if en_method != None:
+            first_round = algos[en_method]("".join(args.en_method))
+            second_round = algos[en_method](first_round)
+            third_round = algos[en_method](second_round)
+            print(third_round)
         #We can convert it here to hexadecimal and it might add another layer
         
         time.sleep(5)
