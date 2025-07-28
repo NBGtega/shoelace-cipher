@@ -55,4 +55,4 @@ def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
     elif current_val == Z_ascii:
         output.append(chr(ord('B')))
     return output
-  
+#print(xor("*#!", "kaboom")) 

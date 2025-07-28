@@ -14,7 +14,7 @@ def crisscross(text):
     
     while i < len(text):                    #runs till all characters are converted
         ascii_value = ord(list_of_char[i])  #ascii value of letter
-        if ascii_value in range(ord('A'), Y_ascii) or ascii_value in range(ord('a'), y_ascii):    #check if the char is within A-X or a-x character limit
+        if ascii_value in range(ord('A'), Y_ascii) or ascii_value in range(ord('a'), y_ascii) or ord(" "):    #check if the char is within A-X or a-x character limit
 
             if ascii_value % 2 == 0:            #check if it's even
                 ascii_value += 1                #step of one char forward
@@ -47,7 +47,7 @@ def army(text):
 
     while i < len(text):            #runs till all characters are converted
         ascii_value = ord(text[i])  #ascii value of letter
-        if ascii_value in range(ord('A'), Y_ascii) or ascii_value in range(ord('a'), y_ascii): #check if the char is within A-Z character limit
+        if ascii_value in range(ord('A'), Y_ascii) or ascii_value in range(ord('a'), y_ascii) or ord(" "): #check if the char is within A-Z character limit
             #Here I am checking if the direction towards the next letter is downwards or diagonal
             #If % 2 == 0, it could mean 2 steps ahead or 3.
             if ascii_value % 4 == 0: 
@@ -74,7 +74,7 @@ def straight_european(text):
     while i < len(text):
         ascii_value = ord(text[i])
         mod = ascii_value % 4
-        if (ascii_value in range(ord('B'), Y_ascii) or ascii_value in range(ord('b'), y_ascii)) and ascii_value != ord('w') and ascii_value != ord('W'):      #range B-X or b-x, without W or w
+        if (ascii_value in range(ord('B'), Y_ascii) or ascii_value in range(ord('b'), y_ascii) or ord(" ")) and ascii_value != ord('w') and ascii_value != ord('W'):      #range B-X or b-x, without W or w
             if mod == 0:
                 ascii_value -= 1
             elif mod == 1:
