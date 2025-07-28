@@ -8,9 +8,9 @@ Objective - Using the shoe lacing pattern to create a symmetric cipher, using la
 
 This repo allows you to cipher texts using an algorithm derived from traditional shoe lacing methods. For the purpose of simplicity we’d be focusing on three lacing patterns respectively:
 
--Cross cross
--Army
--Straight European
+- Cross cross
+- Army
+- Straight European
 
 Lacing Technique Rules:
 All letters are uppercases ASCII letters
