@@ -1,4 +1,4 @@
-def xor(text, magic_value):
+def xor(text, magic_value):             #converts text, magic_value to ascii, does xor between them, converts back to char, returns
     output = []
     i = 0
     while i < len(text):
@@ -9,12 +9,12 @@ def xor(text, magic_value):
         i += 1
     return ''.join(output)
 
-def reverse(text):
+def reverse(text):  #as the name suggests, reverses and returns string
     text_list = list(text)
     text_list.reverse()
     return ''.join(text_list)
 
-def check(expected_lower, actual_lower, expected_upper, actual_upper):
+def check(expected_lower, actual_lower, expected_upper, actual_upper):      #checker function to find bugs while development
     if actual_upper == expected_upper:
         print("Passed uppercase test")
     else:
@@ -22,13 +22,13 @@ def check(expected_lower, actual_lower, expected_upper, actual_upper):
         cause(expected_upper, actual_upper)
 
     if actual_lower == expected_lower:
-        print("Passed lowercase")
+        print("Passed lowercase test")
     else:
         print("Failed lowercase test")
         cause(expected_lower, actual_lower)
 
 
-def cause(expected, actual):
+def cause(expected, actual):        #finds causes of bugs
     i = 0
     expected_list = []
     errored_list = []
@@ -38,7 +38,7 @@ def cause(expected, actual):
             expected_list.append(expected[i])
             errored_list.append(actual[i])
         i += 1
-
+        
     i = 0
     print("Bug(s) found!")        
     while i < len(expected_list):
@@ -55,20 +55,4 @@ def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
     elif current_val == Z_ascii:
         output.append(chr(ord('B')))
     return output
-
-def b_x_and_y_check(current_val, B_ascii, b_ascii, X_ascii, x_ascii, Y_ascii, y_ascii, output):
-    if current_val == B_ascii:
-        output.append(chr(ord('C')))
-    elif current_val ==  b_ascii:
-        output.append(chr(ord('c')))
-    elif current_val ==  X_ascii:
-        output.append(chr(ord('A')))
-    elif current_val == x_ascii:
-        output.append(chr(ord('a')))
-    elif current_val ==  Y_ascii:
-        output.append(chr(ord('D')))
-    elif current_val == y_ascii:
-        output.append(chr(ord('d')))
-    return output
-
 
