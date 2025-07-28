@@ -3,11 +3,21 @@ def xor(text, magic_value):             #converts text, magic_value to ascii, do
     i = 0
     while i < len(text):
         ascii_of_char = ord(text[i])
-        acii_of_mvalue = ord(magic_value[i % len(magic_value)])     #the index is always within bounds of length of magic magic_value
+        acii_of_mvalue = ord(magic_value[i % len(magic_value)])     #the index is always within bounds of length of magic_value
         encrypted = chr(ascii_of_char ^ acii_of_mvalue)
         output.append(encrypted)
         i += 1
     return ''.join(output)
+
+def hex_for_str(text):
+    output = []
+    i = 0
+    while i < len(text):
+        ascii_value = ord(text[i])
+        hex_value = hex(ascii_value)[2:]    #remove first 0x from hex before appending
+        output.append(hex_value)
+        i += 1
+    return "".join(output)
 
 def reverse(text):  #as the name suggests, reverses and returns string
     text_list = list(text)
@@ -55,4 +65,4 @@ def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
     elif current_val == Z_ascii:
         output.append(chr(ord('B')))
     return output
-  
+
