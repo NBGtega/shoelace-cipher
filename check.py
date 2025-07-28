@@ -45,5 +45,5 @@ def check_str_eur():
 
 
 #check_army() 
-#check_criss_cross()
-#check_str_eur()
+check_criss_cross()
+check_str_eur()

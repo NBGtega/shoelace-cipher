@@ -38,10 +38,10 @@ def cause(expected, actual):        #finds causes of bugs
             expected_list.append(expected[i])
             errored_list.append(actual[i])
         i += 1
-
-    i = 0
-    print("Bug(s) found!")        
-    while i < len(expected_list):
-        print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
-        i += 1
+    if expected_list:
+        i = 0
+        print("Bug(s) found!")        
+        while i < len(expected_list):
+            print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
+            i += 1
 #print(xor(xor("ABCDEF", "kaboom"), "kaboom"))
