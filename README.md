@@ -10,15 +10,15 @@ This repo allows you to cipher texts using an algorithm derived from traditional
 
 - Criss cross
 
-![](https://github.com/NBGtega/shoelace-cipher/blob/assets/Criss-cross.gif)
+![Criss Cross](https://raw.githubusercontent.com/NBGtega/shoelace-cipher/assets/Criss-cross.gif)
 
 - Army
 
-![](https://github.com/NBGtega/shoelace-cipher/blob/assets/Army.gif)
+![Army](https://raw.githubusercontent.com/NBGtega/shoelace-cipher/assets/Criss-cross.gif)
 
 - Straight european
 
-![](https://github.com/NBGtega/shoelace-cipher/blob/assets/straight_european.gif)
+![Straight-euro](https://raw.githubusercontent.com/NBGtega/shoelace-cipher/assets/Criss-cross.gif)
 
 Lacing Technique Rules:
 All letters are uppercase ASCII letters
