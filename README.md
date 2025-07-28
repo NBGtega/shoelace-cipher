@@ -9,33 +9,24 @@ Objective - Using the shoe lacing pattern to create a symmetric cipher, using la
 This repo allows you to cipher texts using an algorithm derived from traditional shoe lacing methods. For the purpose of simplicity, we’d be focusing on three lacing patterns respectively:
 
 - Cross cross
+
+![](Criss-cross.gif)
+
 - Army
+
+![](Army.gif)
+
 - Straight European
+
+![](straight_european.gif)
 
 Lacing Technique Rules:
 All letters are uppercase ASCII letters
 Letters are placed in form of rows mapped side by side to their corresponding odds and evens index A-B,C-D… Y-Z forming a 13th row matrix.
 The letters on the left sides are considered odds (letter % 2 != 0) while letters on the right are considered evens (letter % 2 ==0)
 
-- [Features](#Features)
 - [Usage](#Usage)
 - [Contributors](#Contributors)
-
-# Features
-
-The patterns are as follows:
-
-1. Criss-cross
-
-![](Criss-cross.gif)
-
-2. Army
-
-![](Army.gif)
-
-3. Straight European
-
-![](straight_european.gif)
 
 # Usage
 1. Clone the repo with: `git clone <put clone url here>`
