@@ -55,7 +55,7 @@ def main():
         second_round = algos[en_method](first_round)
         third_round = algos[en_method](second_round)
         inverted = reverse(third_round)
-        hexed = hex_for_str(inverted)
+        hexed = hex_for_str(second_round)
         final = ""
         i = 0
         
