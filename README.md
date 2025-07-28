@@ -45,3 +45,7 @@ The patterns are as follows:
 Help option is also available through `python3 main.py -h`
 
 # Contributors
+
+<a href="https://github.com/NBGtega/shoelace-cipher/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NBGtega/shoelace-cipher" />
+</a>
