@@ -17,7 +17,15 @@ All letters are uppercases ASCII letters
 Letters are placed in form of rows mapped side by side to their corresponding odds and evens index A-B,C-D… Y-Z forming a a 13th row matrix.
 The letters on the left sides are considered odds (letter % 2 != 0) while letters on the right are considered evens (letter % 2 ==0)
 
--Features
--Installation
--Usage
--Contributors
+- [Features](#Features)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Contributors](#Contributors)
+
+# Features
+
+# Installation
+
+# Usage
+
+# Contributors
