@@ -38,10 +38,21 @@ def cause(expected, actual):        #finds causes of bugs
             expected_list.append(expected[i])
             errored_list.append(actual[i])
         i += 1
-    if expected_list:
-        i = 0
-        print("Bug(s) found!")        
-        while i < len(expected_list):
-            print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
-            i += 1
-#print(xor(xor("ABCDEF", "kaboom"), "kaboom"))
+        
+    i = 0
+    print("Bug(s) found!")        
+    while i < len(expected_list):
+        print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
+        i += 1
+
+def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
+    if current_val == y_ascii:
+        output.append(chr(ord('a')))
+    elif current_val ==  Y_ascii:
+        output.append(chr(ord('A')))
+    elif current_val ==  z_ascii:
+        output.append(chr(ord('b')))
+    elif current_val == Z_ascii:
+        output.append(chr(ord('B')))
+    return output
+  

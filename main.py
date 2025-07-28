@@ -14,7 +14,7 @@ def main():
     print("Welcome to the shoelace-cipher")
     print("Your trusty CLI to cypher your secrets ;)")
     print()
-    print("Supported cyphering methods: criss-cross, straight european, army")
+    print("Supported cyphering methods: criss-cross, straight_european, army")
     print("If you need more information you can use the flag --help")
 
     active = True
@@ -39,17 +39,18 @@ def main():
         args = parser.parse_args()
 
         method = args.method
-        secret_word = args.secret
+        secret_word = list(args.secret)
 
         #We repeat the process three times to make it as difficult as possible to crack (?)
-        first_round = algos[method](list(secret_word.upper()))
+        first_round = algos[method](secret_word)
         second_round = algos[method](first_round)
         third_round = algos[method](second_round)
         final_round = xor(third_round, magic_value)
-
-        print(first_round)
-        print(second_round)
-        print(third_round)
+        
+        print("".join(first_round))
+        print("".join(second_round))
+        print("".join(third_round))
+        print(final_round)
         print(magic_value)
 
         #We can convert it here to hexadecimal and it might add another layer
