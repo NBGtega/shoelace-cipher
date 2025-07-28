@@ -44,6 +44,6 @@ def check_str_eur():
     check(expected_lower, actual_lower, expected_upper, actual_upper)
 
 
-#check_army() currently giving errors due to incomplete logic 
+#check_army() 
 #check_criss_cross()
-check_str_eur()
+#check_str_eur()

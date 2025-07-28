@@ -1,4 +1,4 @@
-def xor(text, magic_value):
+def xor(text, magic_value):             #converts text, magic_value to ascii, does xor between them, converts back to char, returns
     output = []
     i = 0
     while i < len(text):
@@ -9,12 +9,12 @@ def xor(text, magic_value):
         i += 1
     return ''.join(output)
 
-def reverse(text):
+def reverse(text):  #as the name suggests, reverses and returns string
     text_list = list(text)
     text_list.reverse()
     return ''.join(text_list)
 
-def check(expected_lower, actual_lower, expected_upper, actual_upper):
+def check(expected_lower, actual_lower, expected_upper, actual_upper):      #checker function to find bugs while development
     if actual_upper == expected_upper:
         print("Passed uppercase test")
     else:
@@ -22,13 +22,13 @@ def check(expected_lower, actual_lower, expected_upper, actual_upper):
         cause(expected_upper, actual_upper)
 
     if actual_lower == expected_lower:
-        print("Passed lowercase")
+        print("Passed lowercase test")
     else:
         print("Failed lowercase test")
         cause(expected_lower, actual_lower)
 
 
-def cause(expected, actual):
+def cause(expected, actual):        #finds causes of bugs
     i = 0
     expected_list = []
     errored_list = []
@@ -44,8 +44,4 @@ def cause(expected, actual):
     while i < len(expected_list):
         print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
         i += 1
-
-
-
-
-print(xor(xor("ABCDEF", "kaboom"), "kaboom"))
+#print(xor(xor("ABCDEF", "kaboom"), "kaboom"))
