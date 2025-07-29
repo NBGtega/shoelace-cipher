@@ -1,13 +1,15 @@
-def xor(text, magic_value):             #converts text, magic_value to ascii, does xor between them, converts back to char, returns
-    output = []
-    i = 0
-    while i < len(text):
-        ascii_of_char = ord(text[i])
-        acii_of_mvalue = ord(magic_value[i % len(magic_value)])     #the index is always within bounds of length of magic_value
-        encrypted = chr(ascii_of_char ^ acii_of_mvalue)
-        output.append(encrypted)
-        i += 1
-    return ''.join(output)
+#these two xor functions made by gpt bcz I'm not crazy enough to fry my brain cells
+def xor_encrypt_hex(text, magic_value):
+    magic_value = magic_value * (len(text) // len(magic_value) + 1)
+    encrypted = ''.join(f"{ord(c) ^ ord(k):02x}" for c, k in zip(text, magic_value))
+    return encrypted
+
+def xor_decrypt_hex(hex_string, magic_value):
+    encrypted = bytes.fromhex(hex_string)
+    magic_value = magic_value * (len(encrypted) // len(magic_value) + 1)
+    return ''.join(chr(b ^ ord(k)) for b, k in zip(encrypted, magic_value))
+
+#print(xor_decrypt_hex(xor_encrypt_hex("Fuck you", "kaboom"), "kaboom"))
 
 def hex_for_str(text):
     output = []
