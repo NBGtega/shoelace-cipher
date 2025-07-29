@@ -9,11 +9,11 @@ def recurse(text="ABC", recursion=0): #constantly encrypts with algorithm repepa
         print("We're safe(for now)")
         return 
     recursion += 1
-    if text == "ABC" and recursion != 1:
+    if text == text_upper and recursion != 1:
         print(f"We're fked after {recursion} recursions")
         return
     recurse(crisscross(text), recursion)
-
+#recurse(text_upper)
 
 def check_criss_cross():
     expected_upper = "DCFEHGJILKNMPORQTSVUXWZYBA!"
@@ -25,7 +25,7 @@ def check_criss_cross():
     check(expected_lower, "".join(actual_lower), expected_upper, "".join(actual_upper))
 
 def check_army():
-       expected_upper = "CDFEGHJIKLNMOPRQSTVUWXZYAB!"
+       expected_upper = "CDFEGHJIKLNMOPRQSTVUWXZYAB@"
        expected_lower = expected_upper.lower()
        actual_upper = army(text_upper)
        actual_lower = army(text_lower)
@@ -35,7 +35,7 @@ def check_army():
 
 
 def check_str_eur():
-    expected_upper = "DEHCFILGJMPKNQTORUXSVYZWBA$"
+    expected_upper = "DEHCFILGJMPKNQTORUXSVYZWBA#"
     expected_lower = expected_upper.lower()
     actual_upper = straight_european(text_upper)
     actual_lower = straight_european(text_lower)
@@ -45,6 +45,6 @@ def check_str_eur():
 
 
 
-check_army() 
 check_criss_cross()
+check_army() 
 check_str_eur()

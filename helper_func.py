@@ -55,14 +55,15 @@ def cause(expected, actual):        #finds causes of bugs
         print(f"Expected: {expected_list[i]}        Actual: {errored_list[i]}")
         i += 1
 
-def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii, output):
+def y_and_z_check(current_val, y_ascii, Y_ascii, z_ascii, Z_ascii):
+    ascii_val = 0
     if current_val == y_ascii:
-        output.append(chr(ord('a')))
+        ascii_val = ord('a')
     elif current_val ==  Y_ascii:
-        output.append(chr(ord('A')))
+        ascii_val = ord('A')
     elif current_val ==  z_ascii:
-        output.append(chr(ord('b')))
+        ascii_val = ord('b')
     elif current_val == Z_ascii:
-        output.append(chr(ord('B')))
-    return output
+        ascii_val = ord('B')
+    return ascii_val
 
