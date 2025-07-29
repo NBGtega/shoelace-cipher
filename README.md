@@ -1,7 +1,7 @@
 # Shoe-Lace Cipher Algorithm
 An Entry for the Boot Dev Hackathon
 
-Introduction
+# Introduction
 
 Shoe lace cipher:
 Objective - Using the shoe lacing pattern to create a symmetric cipher, using lacing techniques, digital encoding, and alphabets.
