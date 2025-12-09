@@ -35,11 +35,14 @@ The letters on the left sides are considered odds (letter % 2 != 0) while letter
 
 
 # Usage
-1. Clone the repo with: `git clone <put clone url here>`
-2. cd to the repo name: `cd repo-name`
-3. Use: `python3 main.py -m [message|required] -e [algorithm method| cc (criss-cross), se (straight European), a (army) | one is required]`
+1. Clone the repo with: `git clone https://github.com/NBGtega/shoelace-cipher.git`
+2. cd to the repo name: `cd shoelace-cipher`
+3. Example for criss-cross encryption:
+   ```bash
+   python3 main.py -m [your msg here] -e cc
+   ```
 
-Help option is also available through `python3 main.py -h`
+Use help option for details: `python3 main.py -h`
 
 # Contributors
 
